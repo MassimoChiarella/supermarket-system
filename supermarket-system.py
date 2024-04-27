@@ -23,7 +23,7 @@ elif choice ==2:
             print("Quantity should only be a number")
     while True:
         try:
-            item["price"]= int(input("Item price"))
+            item["price"]= int(input("Price $"))
             break
         except ValueError:
             print("Price should only be a number")
