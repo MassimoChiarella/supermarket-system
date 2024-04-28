@@ -13,7 +13,6 @@ while True:
                 for key, value in item.items():
                     print ("%s : %s" %(key, value))
         
-
     elif choice == 2:
         print("----------- Add Items For Sale -----------")
         print("To add an item, fill in the form")
@@ -51,25 +50,25 @@ while True:
                     print("Sorry, item is out of stock")
 
     elif choice == 4:
+        found = False
         print("----------- Search Items -----------")
         find_item = input("Please enter the item name to search the inventory: ")
         for item in items:
             if item["name"].lower() == find_item.lower():
-                found = True
-                print("The item named" + find_item + "is displayed below with its details")
+                print(f"The item named {find_item} is displayed below with its details:")
                 print(item)
-            else:
-                found = False
-                print("Item not found")
+                found = True
                 break
-
-
+        if not found:
+            print("Item not found")
+                
     elif choice == 5:
+        found = False
         print("----------- Edit Items -----------")
         item_name = input("Enter the name of the item you want to edit: ")
         for item in items:
             if item_name.lower() == item["name"].lower():
-                print("Here are the current details of" + item_name)
+                print(f"Here are the current details of {item_name}: ")
                 print(item)
                 item["name"] = input ("item name: ")
                 while True:
@@ -77,24 +76,21 @@ while True:
                         item["quantity"] = int(input("item quantity: "))
                         break
                     except ValueError:
-                        print("Quantity should only be a number: ")
+                        print("Quantity should only be a number.")
                 while True:
                     try:
                         item["price"] = int(input("item price: "))
                         break
                     except ValueError:
-                        print("Price should only be a number")
+                        print("Price should only be a number.")
                 print(item)
-            else:
-                print("Item not found")
+                found = True
                 break
-                
-
+        if not found:
+            print("Item not found")
+            
     elif choice == 6:
         print("----------- Exited -----------")
         break
     else:
         print("You have entered an invalid option")
-
-
-           
