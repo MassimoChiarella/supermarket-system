@@ -59,7 +59,35 @@ while True:
             else:
                 print("Item not found")
 
+    elif choice == 5:
+        print("----------- Edit Items -----------")
+        item_name = input("Enter the name of the item you want to edit: ")
+        for item in items:
+            if item_name.lower() == item["name"].lower():
+                print("Here are the current details of" + item_name)
+                print(item)
+                item["name"] = input ("item name: ")
+                while True:
+                    try:
+                        item["quantity"] = int(input("item quantity"))
+                        break
+                    except ValueError:
+                        print("Quantity should only be a number")
+                while True:
+                    try:
+                        item["price"] = int(input("item price"))
+                        break
+                    except ValueError:
+                        print("Price should only be a number")
+                print(item)
+            else:
+                print("Item not found")
 
+    elif choice == 6:
+        print("----------- Exited -----------")
+        break
+    else:
+        ("You have entered an invalid option")
 
 
            
