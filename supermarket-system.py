@@ -10,6 +10,7 @@ if len(items)!=0:
     for item in items:
         for key, value in item.items():
             print ("%s : %S" %(key, value))
+
 elif choice ==2:
     print("----------- Add Items -----------")
     print("To add an item, fill in the form")
@@ -29,3 +30,20 @@ elif choice ==2:
             print("Price should only be a number")
     print("Item has been successfully added!")
     items.append(item)
+
+elif choice ==3:
+    print("----------- Purchase Items -----------")
+    print(items)
+    purchase_item = input("Which item would you like to purchase? Enter the name: ")
+    purchase_quantity = int(input("Enter the quantity needed: "))
+    for item in items:
+            if purchase_item.lower()==item["name"].lower():
+                if item["quantity"]!=0:
+                    if purchase_quantity <= item["quantity"]:
+                        print("Pay %d at checkout counter" %(item["price"]* purchase_quantity ))
+                        item["quantity"]-= purchase_quantity
+                    else:
+                        print("The quantity selected is not available")
+                else:
+                    print("Sorry, item is out of stock")
+                
