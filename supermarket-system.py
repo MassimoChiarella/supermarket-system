@@ -55,10 +55,14 @@ while True:
         find_item = input("Please enter the item name to search the inventory: ")
         for item in items:
             if item["name"].lower() == find_item.lower():
+                found = True
                 print("The item named" + find_item + "is displayed below with its details")
                 print(item)
             else:
+                found = False
                 print("Item not found")
+                break
+
 
     elif choice == 5:
         print("----------- Edit Items -----------")
@@ -83,6 +87,8 @@ while True:
                 print(item)
             else:
                 print("Item not found")
+                break
+                
 
     elif choice == 6:
         print("----------- Exited -----------")
