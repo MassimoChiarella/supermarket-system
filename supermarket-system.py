@@ -46,4 +46,14 @@ elif choice ==3:
                         print("The quantity selected is not available")
                 else:
                     print("Sorry, item is out of stock")
+
+elif choice ==4:
+    print("----------- Search Items -----------")
+    find_item = input("Please enter the item name to search the inventory: ")
+    for item in items:
+        if item["name"].lower() == find_item.lower():
+            print("The item named" + find_item + "is displayed below with its details")
+            print(item)
+        else:
+            print("Item not found")
                 
