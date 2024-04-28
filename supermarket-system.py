@@ -1,17 +1,18 @@
 items=[]
 while True:
     print("----------- Welcome to the supermarket -----------")
-    print("1. View items /n 2. Add items /n 3. Purchase items /n 4. Search items /n 5.Edit items /n 6. Exit")
+    print("1. View items \n2. Add items \n3. Purchase items \n4. Search items \n5. Edit items \n6. Exit")
     choice=int(input("Enter the number of your choice: "))
 
     if choice == 1:
         print("----------- View Items -----------")
-        print("The number of items in the inventory are %d" %len(items))
-    if len(items)!=0:
-        print("Here are all of the items available in a supermarket")
-        for item in items:
-            for key, value in item.items():
-                print ("%s : %s" %(key, value))
+        print("The number of items in the inventory are %d " %len(items))
+        if len(items)!=0:
+            print("Here are all of the items available in a supermarket")
+            for item in items:
+                for key, value in item.items():
+                    print ("%s : %s" %(key, value))
+        
 
     elif choice == 2:
         print("----------- Add Items For Sale -----------")
@@ -69,13 +70,13 @@ while True:
                 item["name"] = input ("item name: ")
                 while True:
                     try:
-                        item["quantity"] = int(input("item quantity"))
+                        item["quantity"] = int(input("item quantity: "))
                         break
                     except ValueError:
-                        print("Quantity should only be a number")
+                        print("Quantity should only be a number: ")
                 while True:
                     try:
-                        item["price"] = int(input("item price"))
+                        item["price"] = int(input("item price: "))
                         break
                     except ValueError:
                         print("Price should only be a number")
@@ -87,7 +88,7 @@ while True:
         print("----------- Exited -----------")
         break
     else:
-        ("You have entered an invalid option")
+        print("You have entered an invalid option")
 
 
            
